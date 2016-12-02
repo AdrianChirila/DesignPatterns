@@ -1,0 +1,12 @@
+var n : int;
+    x , suma : double;
+{
+    citeste n;
+    suma = 0.0;
+    pentru i = 07 : n
+    {
+        citeste x;
+        suma = suma + x;
+    }
+    tipareste suma;
+}

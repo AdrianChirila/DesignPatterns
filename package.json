@@ -1,0 +1,27 @@
+{
+  "name": "iw-fhir-server",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "start": "./node_modules/.bin/nodemon ./build/index.js | bunyan -o short",
+    "build": "tsc -w",
+    "buildonce": "tsc",
+    "test": "./node_modules/.bin/mocha --timeout 15000--harmony --reporter spec --require should ./build/spec/default.config.spec.js  | bunyan -o short"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.0.0",
+    "koa-bodyparser": "^2.2.0",
+    "koa-convert": "^1.2.0",
+    "koa-cors": "0.0.16",
+    "koa-router": "^7.0.1",
+    "bunyan": "^1.8.5",
+    "mongoose": "^4.5.4",
+    "request": "^2.74.0"
+  },
+  "devDependencies": {
+    "bluebird": "^3.4.1"
+  }
+}
