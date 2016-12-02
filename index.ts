@@ -5,10 +5,14 @@ import {errorHandler} from "./app/routes/error.handler";
 import {connectDatabase, databaseURL} from "./app/database/mongoose";
 import {StepBuilder} from "./app/utils/build.step";
 import {ResourceImporter} from "./app/utils/resource.importer";
+import {JobBuilder} from "./app/utils/build.job";
+import {PrinterBuilder} from "./app/utils/build.printer";
 var cors: any = require('koa-cors');
 var convert: any = require('koa-convert');
 var bodyparser: any = require('koa-bodyparser');
 const stepMock = require("./mock/step.json");
+const jobMock = require("./mock/job.json");
+const printMock = require("./mock/printer.json");
 
 const Koa = require('koa');
 
@@ -47,6 +51,16 @@ class App {
         for(let i = 0; i < stepMock.entry.length; i ++) {
             let stepImporter = new ResourceImporter(new StepBuilder(stepMock.entry[i]));
             await stepImporter.buildResource();
+        }
+
+        for(let i = 0; i < jobMock.entry.length; i ++) {
+            let jobImporter = new ResourceImporter(new JobBuilder(jobMock.entry[i]));
+            await jobImporter.buildResource();
+        }
+
+        for(let i = 0; i < printMock.entry.length; i ++) {
+            let printerImporter = new ResourceImporter(new PrinterBuilder(printMock.entry[i]));
+            await printerImporter.buildResource();
         }
     }
 }

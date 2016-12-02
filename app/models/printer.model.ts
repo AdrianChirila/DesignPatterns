@@ -1,8 +1,12 @@
-import {mongo} from "mongoose"
+let mongoose = require('mongoose');
 import {Schema} from "./schema.name";
-const MongooseSchema = mongo.Schema;
+const MongooseSchema = mongoose.Schema;
 
 const printerSchema = new MongooseSchema({
+    identifier: {
+        type: Number,
+        uniq: true
+    },
     name: {
         type: String,
         required: true
@@ -15,9 +19,9 @@ const printerSchema = new MongooseSchema({
         type: String,
     }],
     jobs: [{
-        type: mongo.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: Schema.Job
     }]
 });
 
-export default mongo.model(Schema.Printer, printerSchema);
+export default mongoose.model(Schema.Printer, printerSchema);

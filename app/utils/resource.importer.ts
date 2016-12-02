@@ -11,7 +11,7 @@ export class ResourceImporter {
     
     async buildResource() {
         this.resourceBuilder.set();
-        this.resourceBuilder.buildReference();
+        await this.resourceBuilder.buildReference();
         await this.resourceBuilder.saveOrUpdate();
     }
 }

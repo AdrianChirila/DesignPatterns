@@ -1,16 +1,20 @@
-import {mongo} from "mongoose"
+let mongoose = require('mongoose');
 import {Schema} from "./schema.name";
-const MongooseSchema = mongo.Schema;
+const MongooseSchema = mongoose.Schema;
 
 const jobSchema = new MongooseSchema({
+    identifier: {
+        type: Number,
+        uniq: true
+    },
     name: {
         type: String,
         required: true
     },
     steps: [{
-        type: mongo.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: Schema.Step
     }]
 });
 
-export default mongo.model(Schema.Job, jobSchema);
+export default mongoose.model(Schema.Job, jobSchema);
