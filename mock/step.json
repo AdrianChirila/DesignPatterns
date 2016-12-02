@@ -2,7 +2,16 @@
   "resource": "Step",
   "entry": [
     {
-
+      "description": "step 1",
+      "size": 10,
+      "duration": 10,
+      "material": "white paper"
+    },
+    {
+      "description": "step 2",
+      "size": 15,
+      "duration": 15,
+      "material": "white paper"
     }
   ]
 }

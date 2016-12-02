@@ -1,7 +1,11 @@
-import {mongo} from "mongoose"
-const Schema = mongo.Schema;
+let mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const stepSchema = new Schema({
+    identifier: {
+        type: Number,
+        uniq: true
+    },
     description: {
         type: String,
         required: true
@@ -20,4 +24,4 @@ const stepSchema = new Schema({
     }
 });
 
-export default mongo.model('Step', stepSchema);
+export default mongoose.model('Step', stepSchema);
